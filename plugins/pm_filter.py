@@ -719,7 +719,14 @@ async def auto_filter(client, msg, spoll=False):
                     return await advantage_spell_chok(client, msg)
                 else:
                     if NO_RESULTS_MSG:
-                        await client.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, search)))
+                        await client.send_message(chat_id=LOG_CHANNEL, text="""
+#NoResults 
+
+ID <b>: {}</b>
+
+Name <b>: {}</b>
+
+Message <b>: {}</b>"""
                     return
         else:
             return
@@ -866,7 +873,9 @@ async def advantage_spell_chok(client, msg):
             await client.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst)))
         k = await msg.reply_photo(
             photo=SPELL_IMG, 
-            caption=script.I_CUDNT.format(mv_rqst),
+            caption="""<b><i>
+𝖨 𝖼𝗈𝗎𝗅𝖽𝗇'𝗍 𝖿𝗂𝗇𝖽 𝖺𝗇𝗒𝗍𝗁𝗂𝗇𝗀 𝗋𝖾𝗅𝖺𝗍𝖾𝖽 𝗍𝗈 𝗍𝗁𝖺𝗍
+𝖣𝗂𝖽 𝗒𝗈𝗎 𝗆𝖾𝖺𝗇 𝖺𝗇𝗒 𝗈𝗇𝖾 𝗈𝖿 𝗍𝗁𝖾𝗌𝖾?</i></b>""",
             reply_markup=InlineKeyboardMarkup(button)
         )
         await asyncio.sleep(30)
@@ -1194,3 +1203,4 @@ async def global_filters(client, message, text=False):
                 break
     else:
         return False 
+        
