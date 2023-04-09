@@ -719,10 +719,7 @@ async def auto_filter(client, msg, spoll=False):
                     return await advantage_spell_chok(client, msg)
                 else:
                     if NO_RESULTS_MSG:
-                        await client.send_message(chat_id=LOG_CHANNEL, text=(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, search)))
-
-
-
+                        await client.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, search)))
                     return
         else:
             return
